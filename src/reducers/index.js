@@ -8,7 +8,8 @@ const initialState = {
   status: "",
   question: {},
   category: "random",
-  categoryId: -1
+  categoryId: -1,
+  receivedAt: -1
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,18 +17,16 @@ const rootReducer = (state = initialState, action) => {
       return { ...state,
         status: "Fetching"
       };
-      break;
     case FETCH_QUESTION_SUCCESS:
       return { ...state,
         status: "Fetched",
-        question: action.payload
+        question: action.payload,
+        receivedAt: action.receivedAt
       };
-      break;
     case FETCH_QUESTION_FAILURE:
       return { ...state,
         status: "Error"
       };
-      break;
     default:
       return state;
   }

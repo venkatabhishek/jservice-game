@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Quiz from "./components/Quiz";
+import Quiz from "./components/Quiz.jsx";
 
 class App extends Component {
   render() {
