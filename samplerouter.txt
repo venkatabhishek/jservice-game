@@ -1,0 +1,35 @@
+import { createBrowserHistory } from 'history'
+import { applyMiddleware, compose, createStore } from 'redux'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
+...
+const history = createBrowserHistory()
+
+const store = createStore(
+  connectRouter(history)(rootReducer), // new root reducer with router state
+  initialState,
+  compose(
+    applyMiddleware(
+      routerMiddleware(history), // for dispatching history actions
+      // ... other middlewares ...
+    ),
+  ),
+)
+
+
+import { Provider } from 'react-redux'
+import { Route, Switch } from 'react-router' // react-router v4
+import { ConnectedRouter } from 'connected-react-router'
+...
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}> { /* place ConnectedRouter under Provider */ }
+      <div> { /* your usual react-router v4 routing */ }
+        <Switch>
+          <Route exact path="/" render={() => (<div>Match</div>)} />
+          <Route render={() => (<div>Miss</div>)} />
+        </Switch>
+      </div>
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('react-root')
+)
