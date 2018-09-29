@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Quiz from "./components/Quiz.jsx";
 
+import "./App.css"
+
+import { ConnectedRouter } from 'connected-react-router'
+
+//routes
+import routes from './routes';
 class App extends Component {
   render() {
+    var history = this.props.history;
+
     return (
-      <div className="App">
-        <Quiz />
-      </div>
+      <ConnectedRouter history={history}>
+        { routes }
+      </ConnectedRouter>
     );
   }
 }

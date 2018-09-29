@@ -1,0 +1,39 @@
+body{
+  background: #f2f2f2;
+
+}
+
+.wrapper{
+  display: flex;
+  align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.paper{
+  min-width: 200px;
+    padding: 60px;
+    border-radius: 10%;
+}
+
+.form-wrapper{
+}
+
+.sub{
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+.field{
+  padding: 20px !important;
+  width: 100%;
+}
+
+.link{
+  float: right;
+  margin-top: 40px !important;
+}
